@@ -53,6 +53,8 @@ document.querySelector('#search-monster').addEventListener('keyup', (e) => {
     // Getting all the divs
     const findMonster = document.querySelectorAll('.monster')
 
+    let notFound = true;
+
     for (let monster of findMonster) {
         // get the index 1 that it's the name
         const name = monster.children[1].innerText.toLowerCase();
@@ -60,9 +62,17 @@ document.querySelector('#search-monster').addEventListener('keyup', (e) => {
 
         if (name.includes(keyword) || email.includes(keyword)) {
             monster.style.display = 'block';
+            // if something is encountered notFound is false otherwise it passes to the next if condition.
+            notFound = false;
         } else {
             monster.style.display = 'none';
         }
+    }
+
+    if (notFound) {
+        document.querySelector('.not-found').style.display = 'block';
+    } else {
+        document.querySelector('.not-found').style.display = 'none';
     }
 
 })
