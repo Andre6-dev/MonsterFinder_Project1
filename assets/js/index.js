@@ -69,6 +69,7 @@ document.querySelector('#search-monster').addEventListener('keyup', (e) => {
         }
     }
 
+    // 404 Function
     if (notFound) {
         document.querySelector('.not-found').style.display = 'block';
     } else {
