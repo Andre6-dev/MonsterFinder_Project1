@@ -1,7 +1,6 @@
 // I wish you good luck and happy coding 🥰🤠🥳🥳💯💯
 import {monsters} from '/assets/js/monsters.js';
 
-console.log(monsters);
 
 const showMonsters = (monsterdiv) => {
     // Create a div called monster
@@ -25,8 +24,6 @@ const showMonsters = (monsterdiv) => {
 
     document.querySelector('.monsters').append(monster);
 
-
-    console.log(monster);
 };
 
 for (let mosterdiv of monsters) {
@@ -49,3 +46,23 @@ const notFound = () => {
 }
 
 notFound();
+
+document.querySelector('#search-monster').addEventListener('keyup', (e) => {
+    const keyword = e.target.value.toLowerCase();
+
+    // Getting all the divs
+    const findMonster = document.querySelectorAll('.monster')
+
+    for (let monster of findMonster) {
+        // get the index 1 that it's the name
+        const name = monster.children[1].innerText.toLowerCase();
+        const email = monster.children[2].innerText.toLowerCase();
+
+        if (name.includes(keyword) || email.includes(keyword)) {
+            monster.style.display = 'block';
+        } else {
+            monster.style.display = 'none';
+        }
+    }
+
+})
