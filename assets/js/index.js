@@ -1,20 +1,24 @@
 // I wish you good luck and happy coding 🥰🤠🥳🥳💯💯
-const showMosters = () => {
+import {monsters} from '/assets/js/monsters.js';
+
+console.log(monsters);
+
+const showMonsters = (monsterdiv) => {
     // Create a div called monster
     const monster = document.createElement('div');
     monster.className = 'monster';
 
     const img = document.createElement('img');
-    img.src = 'https://robohash.org/6?set=set2';
-    img.alt = 'Andre Gallegos';
+    img.src = `https://robohash.org/${monsterdiv.id}?set=set2`;
+    img.alt = monsterdiv.name;
 
     const name = document.createElement('p');
     name.className = 'name'
-    name.innerText = 'Andre Gallegos'
+    name.innerText = monsterdiv.name
 
     const email = document.createElement('p');
     email.className = 'email';
-    email.innerText = 'ndre322@gmail.com';
+    email.innerText = monsterdiv.email;
 
     // storage it in monster const
     monster.append(img, name, email);
@@ -25,7 +29,9 @@ const showMosters = () => {
     console.log(monster);
 };
 
-showMosters();
+for (let mosterdiv of monsters) {
+    showMonsters(mosterdiv);
+}
 
 const notFound = () => {
     const notFoundDiv = document.createElement('div');
